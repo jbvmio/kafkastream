@@ -2,8 +2,9 @@ package kasper
 
 import (
 	"fmt"
-	"github.com/Shopify/sarama"
 	"time"
+
+	"github.com/Shopify/sarama"
 )
 
 // Config contains the configuration settings for a TopicProcessor.
@@ -29,11 +30,11 @@ type Config struct {
 }
 
 func (config *Config) kafkaConsumerGroup() string {
-	return fmt.Sprintf("kasper-topic-processor-%s", config.TopicProcessorName)
+	return fmt.Sprintf("kafkastream-%s", config.TopicProcessorName)
 }
 
 func (config *Config) producerClientID() string {
-	return fmt.Sprintf("kasper-topic-processor-%s", config.TopicProcessorName)
+	return fmt.Sprintf("kafkastream-%s", config.TopicProcessorName)
 }
 
 func (config *Config) setDefaults() {
